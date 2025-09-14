@@ -1,67 +1,50 @@
-# 🚀 Employee Dashboard - Project Documentation
+# 🚀 Employee Dashboard - React Application
 
-## 1. Overview
+A modern, responsive employee management dashboard built with React. This application features user authentication, employee data visualization, interactive maps, and smooth animations.
 
-The Employee Dashboard is a modern, responsive single-page web application (SPA) built with React. It provides a clean and user-friendly interface for viewing, searching, and visualizing employee data. The application features a secure login, a detailed employee directory, interactive data visualizations, and a location mapping system.
+## 📱 Application Demo
 
-### ✨ Key Features:
+### 🎥 Full Video Walkthrough
+[![Employee Dashboard Demo](https://img.youtube.com/vi/Bg2BA6WiKuw/0.jpg)](https://www.youtube.com/watch?v=Bg2BA6WiKuw)
 
-- **Secure Login**: A simple but effective authentication flow to protect employee data.
-- **Responsive Employee Directory**: A searchable and sortable table of employees that adapts beautifully to all screen sizes.
-- **Interactive Data Charts**: A dynamic bar chart to visualize employee salaries, complete with pagination and display limits.
-- **Geospatial Mapping**: An interactive map powered by OpenStreetMap to display employee locations.
-- **Smooth User Experience**: Fluid page transitions and animations provide a polished, modern feel.
-- **Professional UI/UX**: The entire application is styled with Tailwind CSS for a clean and consistent design.
+*Click the image above to watch the complete application demonstration on YouTube*
 
-## 2. 💻 Core Technologies & Dependencies
+## 📸 Application Screenshots (Click to View)
 
-This project relies on a curated set of powerful libraries to achieve its functionality and professional look.
+| | |
+|:-------------------------:|:-------------------------:|
+| [![Login Page](./public/screenshots/Login.png)](./public/screenshots/Login.png) <br> **Login Page** <br> *Secure authentication interface* | [![Employee Details](./public/screenshots/Detail.png)](./public/screenshots/Detail.png) <br> **Employee Details** <br> *Detailed employee information view* |
+| [![Data Charts](./public/screenshots/Charts.png)](./public/screenshots/Charts.png) <br> **Data Visualization** <br> *Interactive salary charts* | [![Location Maps](./public/screenshots/Maps.png)](./public/screenshots/Maps.png) <br> **Location Mapping** <br> *Interactive employee location map* |
+| [![Photo Results](./public/screenshots/PhotoResult.png)](./public/screenshots/PhotoResult.png) <br> **Photo Gallery** <br> *Employee photo gallery* | [![Responsive Design](./public/screenshots/List.png)](./public/screenshots/List.png) <br> **List of Employee** <br> *Adapts to all screen sizes* |
 
-| Dependency | Role & Purpose |
-|------------|----------------|
-| React | The core JavaScript library for building the user interface with its component-based architecture. |
-| React Router DOM | Manages all client-side routing and enables the SPA functionality. |
-| Tailwind CSS | A utility-first CSS framework used for all styling, following a mobile-first approach. |
-| Axios | A promise-based HTTP client used for making network requests to the backend. |
-| Leaflet & React-Leaflet | The open-source solution for creating interactive maps without an API key. |
-| Recharts | A composable charting library used to build the responsive and beautiful salary bar chart. |
-| Framer Motion | A production-ready animation library that creates the smooth page transitions. |
+## ✨ Features
 
-## 3. 🧠 Key Logic & Implementation Details
+- **🔐 Secure Authentication** - Login/logout functionality with protected routes
+- **👥 Employee Directory** - Search, sort, and paginate through employee data
+- **📊 Data Visualization** - Interactive charts for salary analysis
+- **🗺️ Location Mapping** - Interactive maps with employee locations
+- **🖼️ Photo Gallery** - Browse employee photos
+- **🎨 Modern UI/UX** - Responsive design with smooth animations
+- **⚡ Single Page Application** - Fast navigation without page reloads
 
-### a. 🔐 Authentication & Route Protection
+## 🛠️ Technologies Used
 
-The application uses a simple but effective token-less authentication strategy.
+- **React** - Core JavaScript library for building user interfaces
+- **React Router DOM** - Client-side routing and SPA functionality
+- **Tailwind CSS** - Utility-first CSS framework for styling
+- **Axios** - Promise-based HTTP client for API requests
+- **Leaflet & React-Leaflet** - Open-source interactive maps
+- **Recharts** - Composable charting library for data visualization
+- **Framer Motion** - Production-ready animation library
 
-- **Login**: Upon successful validation of credentials (`testuser` / `Test123`), an `isAuthenticated` flag is set in `localStorage`.
-- **Route Protection**: A `ProtectedRoute` component checks for this flag. If present, it renders the protected pages; otherwise, it redirects to the login screen.
-- **Logout**: The logout button clears all `localStorage` and `sessionStorage` and forces a redirect, ensuring all session data is removed.
+## 🚀 Getting Started
 
-### b. ⬇️ Data Fetching
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm package manager
 
-- Employee data is fetched from a backend endpoint using `axios` within a `useEffect` hook in the `List.js` component.
-- The hook's empty dependency array (`[]`) ensures data is fetched only once when the component first mounts.
-- The application gracefully handles loading and error states, displaying informative messages to the user.
+### Installation & Setup
 
-### c. 🗺️ Interactive Maps (Leaflet)
-
-The map implementation was carefully designed to be robust and handle multiple use cases.
-
-- **Stable Rendering**: The `<MapContainer>` is rendered unconditionally to prevent common "blank screen" issues. A helper component, `MapViewUpdater`, then dynamically adjusts the view, preventing React from unmounting the map during re-renders.
-- **Context-Aware Views**: The `Map.js` component intelligently adjusts its title and view (zooming in on a single city or fitting the bounds to multiple cities) based on the data it receives.
-- **User Experience**: Zooming via mouse scroll and pinch-to-zoom is disabled, relying only on the +/- buttons. A loading spinner is displayed as an overlay until all map tiles are loaded.
-
-### d. 🎬 Animations (Framer Motion)
-
-- To create a smooth navigational experience, the main `<Routes>` component is wrapped with `<AnimatePresence>`.
-- Each page is wrapped in a `<motion.div>` with predefined animation variants.
-- Crucially, the `<Routes>` component is passed a `key` tied to the `location.pathname`, which triggers the animations on every URL change.
-
-## 4. ❗ Important Project Notes
-
-### ⚠️ Critical Setup for Maps
-
-For the Leaflet map to render correctly, its CSS file must be imported globally. The blank screen issue will persist until this is done. Please ensure the following line is at the top of your `src/App.js` or `src/index.js` file:
-
-```javascript
-import 'leaflet/dist/leaflet.css';
+1. **Clone the repository**:
+```bash
+git clone https://github.com/your-username/employee-dashboard.git
