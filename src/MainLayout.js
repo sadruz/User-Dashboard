@@ -1,43 +1,58 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 
-// The Logout button logic is now part of the main layout for consistency.
 function LogoutButton() {
   const handleLogout = () => {
-    // 1. Clear all data from localStorage and sessionStorage to remove any cached user data.
     localStorage.clear();
     sessionStorage.clear();
-
-    console.log('User logged out and all cached data cleared.');
-
-    // 2. Redirect to the login page. This also forces a hard refresh, clearing any in-memory state.
     window.location.href = '/';
   };
 
   return (
     <button
       onClick={handleLogout}
-      className="px-5 py-2 text-sm font-semibold text-white bg-red-500 rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-300"
+      className="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300"
     >
       Logout
     </button>
   );
 }
 
-
 function MainLayout() {
+  const navigate = useNavigate();
+  const location = useLocation(); // Get the current location
+
+  // Logic: Only show the 'Back' button if the user is not on the main '/list' page.
+  // This prevents navigating back to the login screen from the initial dashboard page.
+  const showBackButton = location.pathname !== '/list';
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-md">
+    <div className="min-h-screen bg-gray-100">
+      <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <h1 className="text-2xl font-bold text-gray-800">Employee Dashboard</h1>
-            <LogoutButton />
+            <div className="flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                </svg>
+                <h1 className="text-xl font-bold">Employee Dashboard</h1>
+            </div>
+            <div className="flex items-center gap-4">
+              {/* Conditionally render the Back button based on our logic */}
+              {showBackButton && (
+                <button
+                  onClick={() => navigate(-1)}
+                  className="px-4 py-2 text-sm font-semibold text-white bg-white/20 rounded-md hover:bg-white/30 transition-colors duration-300"
+                >
+                  Back
+                </button>
+              )}
+              <LogoutButton />
+            </div>
           </div>
         </nav>
       </header>
       <main>
-        {/* The <Outlet> component will render the specific page component for the current route */}
         <Outlet />
       </main>
     </div>
