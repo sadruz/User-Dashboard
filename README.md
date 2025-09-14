@@ -15,7 +15,7 @@ A modern, responsive employee management dashboard built with React. This applic
 |:-------------------------:|:-------------------------:|
 | [![Login Page](./public/screenshots/Login.png)](./public/screenshots/Login.png) <br> **Login Page** <br> *Secure authentication interface* | [![Employee Details](./public/screenshots/Detail.png)](./public/screenshots/Detail.png) <br> **Employee Details** <br> *Detailed employee information view* |
 | [![Data Charts](./public/screenshots/Charts.png)](./public/screenshots/Charts.png) <br> **Data Visualization** <br> *Interactive salary charts* | [![Location Maps](./public/screenshots/Maps.png)](./public/screenshots/Maps.png) <br> **Location Mapping** <br> *Interactive employee location map* |
-| [![Photo Results](./public/screenshots/PhotoResult.png)](./public/screenshots/PhotoResult.png) <br> **Photo Gallery** <br> *Employee photo gallery* | [![Responsive Design](./public/screenshots/List.png)](./public/screenshots/List.png) <br> **List of Employee** <br> *Adapts to all screen sizes* |
+| [![Photo Results](./public/screenshots/PhotoResult.png)](./public/screenshots/PhotoResult.png) <br> **Photo Gallery** <br> *Employee photo gallery* | [![Responsive Design](./public/screenshots/List.png)](./public/screenshots/List.png) <br> **List of Employee** <br> *List of all Employees* |
 
 ## ✨ Features
 
@@ -48,3 +48,22 @@ A modern, responsive employee management dashboard built with React. This applic
 1. **Clone the repository**:
 ```bash
 git clone https://github.com/your-username/employee-dashboard.git
+
+2. **Navigate to the project directory:**
+```bash
+cd employee-dashboard
+
+3. **Install dependencies:**
+ ```bash
+ npm install
+
+4. **Start the development server:**
+```bash
+npm start
+
+5. **Open your browser and visit: http://localhost:3000**
+
+**Login Credentials***
+Username: testuser
+
+Password: Test123
