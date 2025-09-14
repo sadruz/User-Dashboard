@@ -50,15 +50,12 @@ A modern, responsive employee management dashboard built with React. This applic
 git clone https://github.com/your-username/employee-dashboard.git
 
 2. **Navigate to the project directory:**
-```bash
 cd employee-dashboard
 
 3. **Install dependencies:**
- ```bash
  npm install
 
 4. **Start the development server:**
-```bash
 npm start
 
 5. **Open your browser and visit: http://localhost:3000**
